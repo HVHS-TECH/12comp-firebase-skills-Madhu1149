@@ -1,7 +1,7 @@
 //**************************************************************/
 // fb_io.mjs
 // Generalised firebase routines
-// Written by <Your Name Here>, Term 2 202?
+// Written by <Madhulika>, Term 2 2025
 //
 // All variables & function begin with fb_  all const with FB_
 // Diagnostic code lines have a comment appended to them //DIAG
