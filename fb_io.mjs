@@ -15,19 +15,49 @@ console.log('%c fb_io.mjs',
 // Import all external constants & functions required
 /**************************************************************/
 // Import all the methods you want to call from the firebase modules
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
+/**************************************************************/
+//Firevase Configuration
+/**************************************************************/
+const firebaseConfig = {
+    apiKey: "AIzaSyAVR1PCSvRfuJtVBBaTOS_Q1l6M9Si0zwk",
+    authDomain: "comp-2025-tirindi-madhulika.firebaseapp.com",
+    databaseURL: "https://comp-2025-tirindi-madhulika-default-rtdb.firebaseio.com",
+    projectId: "comp-2025-tirindi-madhulika",
+    storageBucket: "comp-2025-tirindi-madhulika.firebasestorage.app",
+    messagingSenderId: "492713596983",
+    appId: "1:492713596983:web:1a462d99a51bd1cef607b2",
+    measurementId: "G-RNYJ2GKKLL"
+  };
+
+/**************************************************************/
+// EXPORT FUNCTIONS
+/**************************************************************/
+export { 
+    fb_initialise };
 
 /**************************************************************/
 // EXPORT FUNCTIONS
 // List all the functions called by code or html outside of this module
 /**************************************************************/
-export { 
-    fb_initialise };
 
 function fb_initialise() {
     console.log('%c fb_initialise(): ', 
                 'color: ' + COL_C + '; background-color: ' + COL_B + ';');
+    
+                const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
+                const FB_GAMEDB = getDatabase(FB_GAMEAPP);           
+                console.info(FB_GAMEDB);                          
+            
+                const statusEl = document.getElementById("p_fbInitialise");
+                if (statusEl) {
+                    statusEl.innerHTML = "Initialised";
+                }
 }
+
+
 
 /**************************************************************/
 // END OF CODE
