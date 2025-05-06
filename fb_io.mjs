@@ -17,6 +17,9 @@ console.log('%c fb_io.mjs',
 // Import all the methods you want to call from the firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { getAuth, onAuthStateChanged }  from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+import { signOut, getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 /**************************************************************/
 //Firevase Configuration
@@ -38,6 +41,9 @@ const firebaseConfig = {
 export { 
     fb_initialise };
 
+export { 
+    fb_authenticate };
+
 /**************************************************************/
 // EXPORT FUNCTIONS
 // List all the functions called by code or html outside of this module
@@ -55,6 +61,11 @@ function fb_initialise() {
                 if (statusEl) {
                     statusEl.innerHTML = "Initialised";
                 }
+}
+
+function fb_authenticate(){
+    from './fb_io.mjs';
+    window.fb_authenticate   = fb_authenticate;
 }
 
 
