@@ -19,7 +19,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 import { getAuth, onAuthStateChanged }  from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-import { signOut, getAuth } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+
 
 /**************************************************************/
 //Firevase Configuration
@@ -44,6 +45,9 @@ export {
 export { 
     fb_authenticate };
 
+export { 
+    fb_detectAuthState };
+
 /**************************************************************/
 // EXPORT FUNCTIONS
 // List all the functions called by code or html outside of this module
@@ -67,6 +71,12 @@ function fb_authenticate(){
     from './fb_io.mjs';
     window.fb_authenticate   = fb_authenticate;
 }
+
+function fb_detectAuthState(){
+    from './fb_io.mjs';
+    window.fb_detectAuthState   = fb_detectAuthState;
+}
+
 
 
 

@@ -16,9 +16,8 @@ import { fb_initialise }
     from './fb_io.mjs';
     window.fb_initialise   = fb_initialise;
 
-import { fb_detectAuthState }
-    from './fb_io.mjs';
-    window.fb_detectAuthState   = fb_detectAuthState;
+
+
  
 /**************************************************************/
 // index.html main code
