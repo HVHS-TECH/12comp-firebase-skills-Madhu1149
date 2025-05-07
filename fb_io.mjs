@@ -17,15 +17,13 @@ console.log('%c fb_io.mjs',
 // Import all the methods you want to call from the firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-import { getAuth, onAuthStateChanged }  from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 
 /**************************************************************/
 //Firevase Configuration
 /**************************************************************/
-const firebaseConfig = {
+const FB_GAMECONFIG = {
     apiKey: "AIzaSyAVR1PCSvRfuJtVBBaTOS_Q1l6M9Si0zwk",
     authDomain: "comp-2025-tirindi-madhulika.firebaseapp.com",
     databaseURL: "https://comp-2025-tirindi-madhulika-default-rtdb.firebaseio.com",
@@ -48,6 +46,9 @@ export {
 export { 
     fb_detectAuthState };
 
+export { 
+    fb_signout };
+
 /**************************************************************/
 // EXPORT FUNCTIONS
 // List all the functions called by code or html outside of this module
@@ -68,16 +69,43 @@ function fb_initialise() {
 }
 
 function fb_authenticate(){
-    from './fb_io.mjs';
-    window.fb_authenticate   = fb_authenticate;
+    const AUTH = getAuth();
+    const PROVIDER = new GoogleAuthProvider();
+    PROVIDER.setCustomParameters({
+        prompt: 'select_account'
+    });
+
+    signInWithPopup(AUTH, PROVIDER).then((result) => {
+        console.log("")
+    })
+
+    .catch((error) => {
+        console.log("")
+    });
 }
 
 function fb_detectAuthState(){
-    from './fb_io.mjs';
-    window.fb_detectAuthState   = fb_detectAuthState;
+    const AUTH = getAuth();
+    onAuthStateChanged(AUTH, (user) => {
+        if (user) {
+            console.log("")
+        } else {
+            console.log("")
+        }
+    }, (error) => {
+        console.log("")
+    });
 }
 
-
+function fb_signout(){
+    const AUTH = getAuth();
+    signOut(AUTH).then(() => {
+        console.log("")
+    })
+    .catch((error) => {
+        console.log("")
+    });
+}
 
 
 /**************************************************************/
