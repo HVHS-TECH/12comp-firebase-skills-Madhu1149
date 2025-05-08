@@ -16,7 +16,7 @@ console.log('%c fb_io.mjs',
 /**************************************************************/
 // Import all the methods you want to call from the firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 
@@ -49,6 +49,9 @@ export {
 export { 
     fb_signout };
 
+export { 
+    fb_RecToFirebase };
+
 /**************************************************************/
 // EXPORT FUNCTIONS
 // List all the functions called by code or html outside of this module
@@ -74,13 +77,11 @@ function fb_authenticate(){
     PROVIDER.setCustomParameters({
         prompt: 'select_account'
     });
-
     signInWithPopup(AUTH, PROVIDER).then((result) => {
-        console.log("")
+        console.log("working")
     })
-
     .catch((error) => {
-        console.log("")
+        console.log("not working")
     });
 }
 
@@ -88,25 +89,33 @@ function fb_detectAuthState(){
     const AUTH = getAuth();
     onAuthStateChanged(AUTH, (user) => {
         if (user) {
-            console.log("")
+            console.log("working")
         } else {
-            console.log("")
+            console.log("working")
         }
     }, (error) => {
-        console.log("")
+        console.log("not working")
     });
 }
 
 function fb_signout(){
     const AUTH = getAuth();
     signOut(AUTH).then(() => {
-        console.log("")
+        console.log("working")
     })
     .catch((error) => {
-        console.log("")
+        console.log("not working")
     });
 }
 
+function fb_RecToFirebase(){
+    const dbReference= ref(what-DB, where-to-write-to);
+    set(dbReference, data-to-write).then(() => {
+        console.log("working")
+    }).catch((error) => {
+        console.log("not working")
+    });
+}
 
 /**************************************************************/
 // END OF CODE

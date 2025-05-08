@@ -15,13 +15,25 @@ console.log('%c main.mjs',
 import { fb_initialise }
     from './fb_io.mjs';
     window.fb_initialise   = fb_initialise;
-import { fb_initialise }
+
+import { fb_authenticate }
     from './fb_io.mjs';
-    window.fb_initialise   = fb_initialise;
+    window.fb_authenticate   = fb_authenticate;
 
 
+import { fb_detectAuthState }
+    from './fb_io.mjs';
+    window.fb_detectAuthState   = fb_detectAuthState;
 
- 
+
+import { fb_signout }
+    from './fb_io.mjs';
+    window.fb_signout   = fb_signout;
+
+import { fb_RecToFirebase }
+    from './fb_io.mjs';
+    window.fb_RecToFirebase   = fb_RecToFirebase;
+
 /**************************************************************/
 // index.html main code
 /**************************************************************/
