@@ -52,6 +52,9 @@ export {
 export { 
     fb_RecToFirebase };
 
+export { 
+    fb_Destruction_Button };
+
 /**************************************************************/
 // EXPORT FUNCTIONS
 // List all the functions called by code or html outside of this module
@@ -108,15 +111,51 @@ function fb_signout(){
     });
 }
 
+
 function fb_RecToFirebase(){
-    const dbReference= ref(what-DB, where-to-write-to);
-    set(dbReference, data-to-write).then(() => {
+    const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
+    const FB_GAMEDB = getDatabase(FB_GAMEAPP);      
+    const dbReference= ref(FB_GAMEDB,"friction/Author");
+    set(dbReference, {Book_number:539}).then(() => {
         console.log("working")
     }).catch((error) => {
         console.log("not working")
     });
 }
 
+function fb_Destruction_Button(){
+       console.log('%c fb_initialise(): ', 'color: ' + COL_C + '; background-color: ' + COL_B + ';');
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    //https://comp-firebaseskills-default-rtdb.asia-southeast1.firebasedatabase.app
+    // Your web app's Firebase configuration
+    /*   const FB_CONFIG = {
+           apiKey: "AIzaSyAC9lbREKwJJ95pZUJ7Wy3hI_QfivE2a34",
+           authDomain: "comp-firebaseskills.firebaseapp.com",
+           projectId: "comp-firebaseskills",
+           storageBucket: "comp-firebaseskills.firebasestorage.app",
+           messagingSenderId: "634491601796",
+           appId: "1:634491601796:web:1c48be8af741f25bd353d1"
+       }; */
+    const FB_CONFIG = {
+        apiKey: "AIzaSyB5B5P_sSmNTN7RjkaV-I2TKNUJWj0cF1A",
+        authDomain: "comp-2025-carmen-o-grady.firebaseapp.com",
+        databaseURL: "https://comp-2025-carmen-o-grady-default-rtdb.firebaseio.com",
+        projectId: "comp-2025-carmen-o-grady",
+        storageBucket: "comp-2025-carmen-o-grady.appspot.com",
+        messagingSenderId: "1046417795904",
+        appId: "1:1046417795904:web:25cff308e04c73eb5968a5",
+        measurementId: "G-BGRNW3X6K8"
+    };
+    // Initialize Firebase
+    console.log(FB_CONFIG)
+    const FB_APP = initializeApp(FB_CONFIG);
+    console.log(FB_APP);
+    var fb_gamedb = getDatabase(FB_APP);
+    console.log(fb_gamedb);
+    document.getElementById("p_fbInitialise").innerHTML = "Initialised";
+}
 /**************************************************************/
 // END OF CODE
 /**************************************************************/

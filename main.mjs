@@ -34,6 +34,9 @@ import { fb_RecToFirebase }
     from './fb_io.mjs';
     window.fb_RecToFirebase   = fb_RecToFirebase;
 
+    import { fb_Destruction_Button}
+    from './fb_io.mjs';
+    window.fb_Destruction_Button   = fb_Destruction_Button;
 /**************************************************************/
 // index.html main code
 /**************************************************************/
