@@ -53,6 +53,12 @@ export {
     fb_RecToFirebase };
 
 export { 
+    fb_ReadSpecificFirebase };
+
+export { 
+    fb_ReadAllRec };
+
+export { 
     fb_Destruction_Button };
 
 /**************************************************************/
@@ -102,9 +108,9 @@ function fb_detectAuthState(){
 }
 
 function fb_signout(){
-    const AUTH = getAuth();
+     const AUTH = getAuth();
     signOut(AUTH).then(() => {
-        console.log("working")
+         console.log("working")
     })
     .catch((error) => {
         console.log("not working")
@@ -122,6 +128,41 @@ function fb_RecToFirebase(){
         console.log("not working")
     });
 }
+
+function fb_ReadSpecificFirebase(){
+    const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
+    const FB_GAMEDB = getDatabase(FB_GAMEAPP,"friction/Author"); 
+    const dbReference= ref(FB_GAMEDB, );
+    get(dbReference).then((snapshot) => {
+        var fb_data = snapshot.val();
+        if (fb_data != null) {
+            
+        } else {
+            console.log("working")
+        }
+    }).catch((error) => {
+        console.log("Not working")
+    });
+}
+
+function fb_ReadAllRec(){
+    const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
+    const FB_GAMEDB = getDatabase(FB_GAMEAPP,"friction/Author");
+   const dbReference= ref(FB_GAMEAPP,"friction");
+    get(dbReference).then((snapshot) => {
+        var fb_data = snapshot.val();
+        if (fb_data != null) {
+             console.log("working")
+        } else {
+            console.log("working")
+        }
+    }).catch((error) => {
+        console.log("Not working")
+
+    });
+}
+
+
 
 function fb_Destruction_Button(){
        console.log('%c fb_initialise(): ', 'color: ' + COL_C + '; background-color: ' + COL_B + ';');
