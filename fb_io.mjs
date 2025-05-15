@@ -59,6 +59,9 @@ export {
     fb_ReadAllRec };
 
 export { 
+    fb_UpdateFbRec };
+
+export { 
     fb_Destruction_Button };
 
 /**************************************************************/
@@ -132,7 +135,7 @@ function fb_RecToFirebase(){
 function fb_ReadSpecificFirebase(){
     const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
     const FB_GAMEDB = getDatabase(FB_GAMEAPP,"friction/Author"); 
-    const dbReference= ref(FB_GAMEDB, );
+    const dbReference= ref(FB_GAMEDB,"friction/Author" );
     get(dbReference).then((snapshot) => {
         var fb_data = snapshot.val();
         if (fb_data != null) {
@@ -161,6 +164,18 @@ function fb_ReadAllRec(){
 
     });
 }
+
+function fb_UpdateFbRec(){
+    const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
+    const FB_GAMEDB = getDatabase(FB_GAMEAPP,"friction/Author");
+    const dbReference= ref(FB_GAMEAPP,"friction/Author");
+    update(dbReference,{Book_number:539} ).then(() => {
+        console.log("working")
+    }).catch((error) => {
+        console.log("Not working")
+    });
+}
+
 
 
 

@@ -42,6 +42,11 @@ import { fb_ReadAllRec }
     from './fb_io.mjs';
     window.fb_ReadAllRec   = fb_ReadAllRec;
 
+import { fb_UpdateFbRec }
+    from './fb_io.mjs';
+    window.fb_UpdateFbRec   = fb_UpdateFbRec;
+
+
 
 import { fb_Destruction_Button}
     from './fb_io.mjs';
