@@ -46,7 +46,6 @@ import { fb_ReadAllRec }
 import { fb_UpdateFbRec }
     from './fb_io.mjs';
     window.fb_UpdateFbRec   = fb_UpdateFbRec;
-*/
 /**************************************************************/
 // index.html main code
 /**************************************************************/

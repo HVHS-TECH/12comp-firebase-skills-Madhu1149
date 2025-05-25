@@ -166,15 +166,14 @@ function fb_ReadAllRec(){
 /*
 function fb_UpdateFbRec(){
     const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
-    const FB_GAMEDB = getDatabase(FB_GAMEAPP,"friction/Author");
+    const FB_GAMEDB = getDatabase(FB_GAMEAPP);
     const dbReference= ref(FB_GAMEAPP,"friction/Author");
-    update(dbReference,{Book_number:539} ).then(() => {
-        console.log("working")
+    update(dbReference,{Book_number:639} ).then(() => {
+        console.log(fb_data)
     }).catch((error) => {
         console.log("Not working")
     });
 }
-*/
 /**************************************************************/
 // END OF CODE
 /**************************************************************/
