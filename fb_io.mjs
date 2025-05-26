@@ -87,10 +87,10 @@ function fb_authenticate(){
     PROVIDER.setCustomParameters({
         prompt: 'select_account'
     });
-    signInWithPopup(AUTH, PROVIDER).then((result) => {
+    signInWithPopup(AUTH, PROVIDER).then(() => {
         console.log("working")
     })
-    .catch((error) => {
+    .catch(() => {
         console.log("not working")
     });
 }
@@ -103,7 +103,7 @@ function fb_detectAuthState(){
         } else {
             console.log("working")
         }
-    }, (error) => {
+    }, () => {
         console.log("not working")
     });
 }
@@ -113,7 +113,7 @@ function fb_signout(){
     signOut(AUTH).then(() => {
          console.log("working")
     })
-    .catch((error) => {
+    .catch(() => {
         console.log("not working")
     });
 }
@@ -125,7 +125,7 @@ function fb_RecToFirebase(){
     const dbReference= ref(FB_GAMEDB,"friction/Author");
     set(dbReference, {Book_number:539}).then(() => {
         console.log("working")
-    }).catch((error) => {
+    }).catch(() => {
         console.log("not working")
     });
 }
@@ -141,16 +141,16 @@ function fb_ReadSpecificFirebase(){
         } else {
             console.log("No rec found")
         }
-    }).catch((error) => {
+    }).catch(() => {
         console.log("Not working")
     });
 }
 
 
 function fb_ReadAllRec(){
-    const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
-    const FB_GAMEDB = getDatabase(FB_GAMEAPP);
-   const dbReference= ref(FB_GAMEAPP,"friction");
+    const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);  
+    const FB_GAMEDB = getDatabase(FB_GAMEAPP);   
+    const dbReference= ref(FB_GAMEAPP,"friction");
     get(dbReference).then((snapshot) => {
         var fb_data = snapshot.val();
         if (fb_data != null) {
@@ -158,7 +158,7 @@ function fb_ReadAllRec(){
         } else {
             console.log("no rec found")
         }
-    }).catch((error) => {
+    }).catch(() => {
         console.log("Not working")
 
     });
