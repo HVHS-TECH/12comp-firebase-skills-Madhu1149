@@ -16,7 +16,7 @@ console.log('%c fb_io.mjs',
 /**************************************************************/
 // Import all the methods you want to call from the firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getDatabase, ref, set, get, query, orderByChild, limitToFirst} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+import { getDatabase, ref, set, get, update, query, orderByChild, limitToFirst} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 
@@ -61,10 +61,10 @@ export {
 
 export { 
     fb_UpdateFbRec }
-/*
+
 export { 
     fb_ReadSorted }
-*/
+
 /**************************************************************/
 // EXPORT FUNCTIONS
 // List all the functions called by code or html outside of this module
@@ -177,7 +177,7 @@ function fb_UpdateFbRec(){
         console.log("Not working")
     });
 }
-/*
+
 function fb_ReadSorted(){
     const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
     const FB_GAMEDB = getDatabase(FB_GAMEAPP);
