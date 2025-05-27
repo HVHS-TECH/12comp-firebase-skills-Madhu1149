@@ -181,7 +181,7 @@ function fb_UpdateFbRec(){
 function fb_ReadSorted(){
     const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
     const FB_GAMEDB = getDatabase(FB_GAMEAPP);
-    const dbReference= query(ref(FB_GAMEDB,"friction"), orderByChild(sortkey), limitToFirst(1));
+    const dbReference= query(ref(FB_GAMEDB,"friction"), orderByChild(Author), limitToFirst(1));
     get(dbReference).then((snapshot) => {
         var fb_data = snapshot.val();
       if (fb_data != null) {
