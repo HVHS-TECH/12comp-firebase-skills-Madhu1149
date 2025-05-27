@@ -16,7 +16,7 @@ console.log('%c fb_io.mjs',
 /**************************************************************/
 // Import all the methods you want to call from the firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+import { getDatabase, ref, set, get, query, orderByChild, limitToFirst} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
 
@@ -58,9 +58,12 @@ export {
 
 export { 
     fb_ReadAllRec };
-/*
+
 export { 
     fb_UpdateFbRec }
+/*
+export { 
+    fb_ReadSorted }
 */
 /**************************************************************/
 // EXPORT FUNCTIONS
@@ -150,7 +153,7 @@ function fb_ReadSpecificFirebase(){
 function fb_ReadAllRec(){
     const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);  
     const FB_GAMEDB = getDatabase(FB_GAMEAPP);   
-    const dbReference= ref(FB_GAMEAPP,"friction");
+    const dbReference= ref(FB_GAMEDB,"friction");
     get(dbReference).then((snapshot) => {
         var fb_data = snapshot.val();
         if (fb_data != null) {
@@ -163,15 +166,31 @@ function fb_ReadAllRec(){
 
     });
 }
-/*
+
 function fb_UpdateFbRec(){
     const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
     const FB_GAMEDB = getDatabase(FB_GAMEAPP);
-    const dbReference= ref(FB_GAMEAPP,"friction/Author");
+    const dbReference= ref(FB_GAMEDB,"friction/Author");
     update(dbReference,{Book_number:639} ).then(() => {
-        console.log(fb_data)
+        console.log("working")
     }).catch((error) => {
         console.log("Not working")
+    });
+}
+/*
+function fb_ReadSorted(){
+    const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
+    const FB_GAMEDB = getDatabase(FB_GAMEAPP);
+    const dbReference= query(ref(FB_GAMEDB,"friction"), orderByChild(sortkey), limitToFirst(1));
+    get(dbReference).then((snapshot) => {
+        var fb_data = snapshot.val();
+      if (fb_data != null) {
+           consol.log("working")
+        } else {
+           consol.log("No records found")
+        }
+    }).catch((error) => {
+        consol.log("something is wrong")
     });
 }
 /**************************************************************/
