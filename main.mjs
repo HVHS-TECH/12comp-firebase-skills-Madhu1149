@@ -38,7 +38,6 @@ import { fb_ReadSpecificFirebase }
     from './fb_io.mjs';
     window.fb_ReadSpecificFirebase   = fb_ReadSpecificFirebase;
 
-
 import { fb_ReadAllRec }
     from './fb_io.mjs';
     window.fb_ReadAllRec   = fb_ReadAllRec;
@@ -50,6 +49,10 @@ import { fb_UpdateFbRec }
 import { fb_ReadSorted }
     from './fb_io.mjs';
     window.fb_ReadSorted   = fb_ReadSorted;
+
+import { fb_onValue }
+    from './fb_io.mjs';
+    window.fb_onValue   = fb_onValue;
 
 /**************************************************************/
 // index.html main code

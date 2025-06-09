@@ -65,6 +65,9 @@ export {
 export { 
     fb_ReadSorted }
 
+export { 
+    fb_onValue }
+
 /**************************************************************/
 // EXPORT FUNCTIONS
 // List all the functions called by code or html outside of this module
@@ -193,8 +196,8 @@ function fb_ReadSorted(){
         consol.log("something is wrong")
     });
 }
-/*
-function onValue(){
+
+function fb_onValue(){
     const dbReference = ref(FB_GAMEDB, );
     onValue(dbReference, (snapshot) => {
         var fb_data = snapshot.val();
