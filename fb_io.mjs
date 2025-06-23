@@ -76,15 +76,13 @@ export {
 function fb_initialise() {
     console.log('%c fb_initialise(): ', 
                 'color: ' + COL_C + '; background-color: ' + COL_B + ';');
-    
-                const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
-                const FB_GAMEDB = getDatabase(FB_GAMEAPP);           
-                console.info(FB_GAMEDB);                          
-            
-                const statusEl = document.getElementById("p_fbInitialise");
-                if (statusEl) {
-                    statusEl.innerHTML = "Initialised";
-                }
+    const FB_GAMEAPP = initializeApp(FB_GAMECONFIG);    
+    const FB_GAMEDB = getDatabase(FB_GAMEAPP);
+    console.info(FB_GAMEDB);
+    const statusEl = document.getElementById("p_fbInitialise");
+    if (statusEl) {
+        statusEl.innerHTML = "Initialised";
+    }
 }
 
 function fb_authenticate(){
